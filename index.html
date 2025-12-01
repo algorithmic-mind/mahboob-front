@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="فروشگاه کتاب الکترونیکی کتابخوان - خرید و مطالعه کتاب‌های دیجیتال">
+<meta name="theme-color" content="#667eea">
+<link rel="manifest" href="manifest.json">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playpen+Sans+Hebrew:wght@100..800&family=Varela+Round&family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/style.css">
+<title>کتابخوان - فروشگاه کتاب الکترونیکی</title>
+</head>
+<body>
+
+<!-- Top Header -->
+<div class="top-header">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="user-greeting">
+        <div class="user-avatar">د</div>
+        <div>
+          <div style="font-size: 0.85rem; color: #666;">سلام،</div>
+          <div style="font-weight: 600; color: #1a1a1a;">دوستین!</div>
+        </div>
+      </div>
+      <div class="desktop-nav d-none d-md-flex gap-3">
+        <a href="books.html" class="btn btn-outline-primary">همه کتاب‌ها</a>
+        <a href="cart.html" class="btn btn-primary position-relative">
+          سبد خرید
+          <span class="cart-badge" style="display: none;">0</span>
+        </a>
+      </div>
+      <button class="btn" onclick="window.location.href='cart.html'" style="position: relative;">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+        </svg>
+        <span class="cart-badge" style="display: none;">0</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class='container mt-3'>
+  <!-- Search Box -->
+  <div class="mb-4">
+    <input class='form-control search-box' placeholder='جستجوی کتاب، نویسنده...'>
+  </div>
+
+  <!-- Popular Books Section -->
+  <div class="mb-4">
+    <h2 class="section-title">کتاب‌های منتخب امروز</h2>
+    <div class="popular-books-container" id="popular-books">
+      <div class="text-center py-5 w-100">
+        <div class="spinner-border text-primary" role="status"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Newest Books Section -->
+  <div class="mb-5">
+    <h2 class="section-title">جدیدترین‌ها</h2>
+    <div id="newest-books">
+      <div class="text-center py-5">
+        <div class="spinner-border text-primary" role="status"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

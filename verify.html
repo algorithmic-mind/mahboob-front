@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0d6efd">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playpen+Sans+Hebrew:wght@100..800&family=Varela+Round&family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>تایید کد - محبوب</title>
+</head>
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg bg-white shadow-sm mb-4">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">محبوب</a>
+  </div>
+</nav>
+
+<div class='container'>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="bg-white p-4 rounded shadow-sm">
+        <div class="text-center mb-4">
+          <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+            <svg width="40" height="40" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+            </svg>
+          </div>
+          <h3>تایید شماره موبایل</h3>
+          <p class="text-muted">کد ارسال شده به شماره 09123456789 را وارد کنید</p>
+        </div>
+        
+        <form id='verify-form'>
+          <div class="mb-3">
+            <label class='form-label'>کد تایید</label>
+            <input type="text" class='form-control form-control-lg text-center' placeholder='- - - - - -' maxlength="6" pattern="[0-9]{6}" required style="letter-spacing: 10px; font-size: 24px;">
+          </div>
+          
+          <button type="submit" class='btn btn-success btn-lg w-100 mb-3'>
+            <svg class="ms-2" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            تایید و ورود
+          </button>
+          
+          <button type="button" class='btn btn-outline-secondary w-100' onclick="window.location.href='register.html'">
+            ارسال مجدد کد
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
