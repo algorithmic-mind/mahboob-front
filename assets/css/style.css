@@ -73,6 +73,40 @@ body {
   transform: scale(1.05);
 }
 
+/* Mobile Header Icons */
+.mobile-header-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header-icon-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+
+.header-icon-btn:hover {
+  background: var(--border-color);
+}
+
+.header-icon-btn:active {
+  transform: scale(0.95);
+}
+
+.header-icon-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
 /* Mobile Menu Toggle Button */
 .mobile-menu-toggle {
   display: flex;
@@ -254,6 +288,94 @@ body {
   margin-bottom: 1rem;
 }
 
+/* Hero Banner */
+.hero-banner {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #4c9aff 100%);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+.hero-btn {
+  background: white;
+  color: var(--primary-color);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Category Pills - Swiper */
+.category-swiper {
+  padding: 0.5rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.category-swiper .swiper-slide {
+  width: auto !important;
+}
+
+.category-pill {
+  background: var(--surface);
+  border: 2px solid var(--border-color);
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.category-pill:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.category-pill.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
 /* Swiper Slider for Popular Books */
 .swiper-container {
   width: 100%;
@@ -307,6 +429,30 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* Book Type Badge */
+.book-type-badge {
+  display: inline-block;
+  background: var(--primary-color);
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin-top: 0.25rem;
+  font-weight: 600;
+}
+
+.book-type-badge.physical {
+  background: #10b981;
+}
+
+.book-type-badge.digital {
+  background: #8b5cf6;
+}
+
+.book-type-badge.both {
+  background: linear-gradient(90deg, #10b981 50%, #8b5cf6 50%);
 }
 
 /* Newest Books - Grid Layout */
@@ -490,12 +636,187 @@ body {
   display: block;
 }
 
+.book-detail-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .book-detail-container {
+    grid-template-columns: 350px 1fr;
+  }
+  
+  .book-detail-cover {
+    position: sticky;
+    top: 100px;
+    height: 500px;
+    max-width: 350px;
+  }
+  
+  .book-detail-info {
+    min-height: 500px;
+  }
+}
+
 .detail-section {
   background: var(--surface);
   border-radius: var(--border-radius);
   padding: 1.5rem;
   margin-bottom: 1rem;
   box-shadow: var(--shadow-sm);
+}
+
+.detail-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 1rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.detail-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-btn {
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-secondary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+  margin-bottom: -2px;
+}
+
+.tab-btn:hover {
+  color: var(--primary-color);
+}
+
+.tab-btn.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.3s;
+}
+
+/* Audio Player */
+.audio-player {
+  background: var(--background);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.audio-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.play-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.play-btn:hover {
+  background: var(--primary-hover);
+  transform: scale(1.05);
+}
+
+.audio-progress {
+  flex: 1;
+  height: 4px;
+  background: var(--border-color);
+  border-radius: 2px;
+  position: relative;
+  cursor: pointer;
+}
+
+.audio-progress-bar {
+  height: 100%;
+  background: var(--primary-color);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.1s;
+}
+
+.audio-time {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Comments Section */
+.comment-item {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.comment-item:last-child {
+  border-bottom: none;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.comment-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.comment-author {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.comment-date {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.comment-rating {
+  display: flex;
+  gap: 0.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.comment-text {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.9rem;
 }
 
 .action-btn {
@@ -506,6 +827,10 @@ body {
   border: none;
   transition: var(--transition);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .action-btn:active {
@@ -660,9 +985,13 @@ body {
   .mobile-menu-toggle {
     display: none;
   }
+
+  .mobile-header-icons {
+    display: none;
+  }
   
   .books-grid {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
   
   .popular-book-card {
@@ -672,6 +1001,10 @@ body {
   .popular-book-cover {
     height: 220px;
   }
+
+  .newest-book-cover {
+    height: 250px;
+  }
   
   .container {
     max-width: 1200px;
@@ -679,6 +1012,14 @@ body {
   
   .desktop-nav {
     display: flex !important;
+  }
+
+  .hero-banner {
+    padding: 3rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
   }
 }
 
