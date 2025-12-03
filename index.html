@@ -167,7 +167,7 @@
         </a>
       </li>
       <li class="menu-nav-item">
-        <a href="#" class="menu-nav-link" onclick="logout()">
+        <a href="#" class="menu-nav-link">
           <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
           </svg>
@@ -183,7 +183,7 @@
   <!-- Hero Banner -->
   <div class="hero-banner">
     <div class="hero-content">
-      <h1 class="hero-title">🎉 خوش آمدید به محبوب</h1>
+      <h1 class="hero-title">خوش آمدید به محبوب</h1>
       <p class="hero-subtitle">بزرگترین فروشگاه کتاب الکترونیکی و فیزیکی با بیش از ۱۰۰۰ عنوان</p>
       <button class="hero-btn" onclick="window.location.href='books.html'">مشاهده همه کتاب‌ها</button>
     </div>
@@ -191,22 +191,88 @@
 
   <!-- Search Box -->
   <div class="mb-4">
-    <input class='form-control search-box' placeholder='🔍 جستجوی کتاب، نویسنده...'>
+    <input class='form-control search-box' placeholder='جستجوی کتاب، نویسنده...'>
   </div>
 
   <!-- Category Pills with Swiper -->
-  <div id="categories" class="mb-4">
-    <!-- Categories will be loaded dynamically as swiper -->
+  <div class="mb-4">
+    <div class="swiper category-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <button class="category-pill active">همه</button>
+        </div>
+        <div class="swiper-slide">
+          <button class="category-pill">رمان</button>
+        </div>
+        <div class="swiper-slide">
+          <button class="category-pill">توسعه فردی</button>
+        </div>
+        <div class="swiper-slide">
+          <button class="category-pill">روانشناسی</button>
+        </div>
+        <div class="swiper-slide">
+          <button class="category-pill">فانتزی</button>
+        </div>
+        <div class="swiper-slide">
+          <button class="category-pill">کلاسیک</button>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- Popular Books Section with Swiper -->
+  <!-- Popular Books Section -->
   <div class="mb-4">
-    <h2 class="section-title">⭐ کتاب‌های منتخب امروز</h2>
+    <h2 class="section-title">کتاب‌های منتخب امروز</h2>
     <div class="swiper-container">
       <div class="swiper-wrapper">
-        <!-- Books will be dynamically loaded here -->
-        <div class="text-center py-5 w-100">
-          <div class="spinner-border text-primary" role="status"></div>
+        <!-- Book 1 -->
+        <div class="swiper-slide">
+          <div class="popular-book-card" onclick="window.location.href='book.html?id=1'">
+            <img src="assets/imgs/1.jpg" class="popular-book-cover" alt="شازده کوچولو">
+            <div class="popular-book-title">شازده کوچولو</div>
+            <div class="popular-book-author">آنتوان دو سنت اگزوپری</div>
+            <div class="price-tag">۱۲۵,۰۰۰ تومان</div>
+          </div>
+        </div>
+        
+        <!-- Book 2 -->
+        <div class="swiper-slide">
+          <div class="popular-book-card" onclick="window.location.href='book.html?id=2'">
+            <img src="assets/imgs/2.jpg" class="popular-book-cover" alt="صد سال تنهایی">
+            <div class="popular-book-title">صد سال تنهایی</div>
+            <div class="popular-book-author">گابریل گارسیا مارکز</div>
+            <div class="price-tag">۱۵۰,۰۰۰ تومان</div>
+          </div>
+        </div>
+        
+        <!-- Book 3 -->
+        <div class="swiper-slide">
+          <div class="popular-book-card" onclick="window.location.href='book.html?id=3'">
+            <img src="assets/imgs/3.jpg" class="popular-book-cover" alt="کافه نوستالژی">
+            <div class="popular-book-title">کافه نوستالژی</div>
+            <div class="popular-book-author">توشیکازو کاواگوچی</div>
+            <div class="price-tag">۹۸,۰۰۰ تومان</div>
+          </div>
+        </div>
+        
+        <!-- Book 4 -->
+        <div class="swiper-slide">
+          <div class="popular-book-card" onclick="window.location.href='book.html?id=4'">
+            <img src="assets/imgs/4.jpg" class="popular-book-cover" alt="هنر بی‌خیالی">
+            <div class="popular-book-title">هنر بی‌خیالی</div>
+            <div class="popular-book-author">مارک منسون</div>
+            <div class="price-tag">۸۹,۰۰۰ تومان</div>
+          </div>
+        </div>
+        
+        <!-- Book 5 -->
+        <div class="swiper-slide">
+          <div class="popular-book-card" onclick="window.location.href='book.html?id=6'">
+            <img src="assets/imgs/6.jpg" class="popular-book-cover" alt="انسان در جستجوی معنا">
+            <div class="popular-book-title">انسان در جستجوی معنا</div>
+            <div class="popular-book-author">ویکتور فرانکل</div>
+            <div class="price-tag">۹۵,۰۰۰ تومان</div>
+          </div>
         </div>
       </div>
     </div>
@@ -214,14 +280,235 @@
 
   <!-- Newest Books Section -->
   <div class="mb-5">
-    <h2 class="section-title">🆕 جدیدترین‌ها</h2>
-    <div id="newest-books">
-      <div class="text-center py-5">
-        <div class="spinner-border text-primary" role="status"></div>
+    <h2 class="section-title">جدیدترین‌ها</h2>
+    <div class="books-grid">
+      <!-- Book 1 -->
+      <div class="newest-book-card">
+        <div style="position: relative;">
+          <img src="assets/imgs/1.jpg" class="newest-book-cover" alt="شازده کوچولو" onclick="window.location.href='book.html?id=1'">
+          <button class="bookmark-btn" style="position: absolute; top: 0.5rem; left: 0.5rem; background: white;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="newest-book-info" onclick="window.location.href='book.html?id=1'">
+          <div class="newest-book-title">شازده کوچولو</div>
+          <div class="newest-book-author">آنتوان دو سنت اگزوپری</div>
+          <div class="rating-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="price-tag">۱۲۵,۰۰۰ تومان</div>
+        </div>
+      </div>
+
+      <!-- Book 2 -->
+      <div class="newest-book-card">
+        <div style="position: relative;">
+          <img src="assets/imgs/2.jpg" class="newest-book-cover" alt="صد سال تنهایی" onclick="window.location.href='book.html?id=2'">
+          <button class="bookmark-btn" style="position: absolute; top: 0.5rem; left: 0.5rem; background: white;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="newest-book-info" onclick="window.location.href='book.html?id=2'">
+          <div class="newest-book-title">صد سال تنهایی</div>
+          <div class="newest-book-author">گابریل گارسیا مارکز</div>
+          <div class="rating-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="price-tag">۱۵۰,۰۰۰ تومان</div>
+        </div>
+      </div>
+
+      <!-- Book 3 -->
+      <div class="newest-book-card">
+        <div style="position: relative;">
+          <img src="assets/imgs/3.jpg" class="newest-book-cover" alt="کافه نوستالژی" onclick="window.location.href='book.html?id=3'">
+          <button class="bookmark-btn" style="position: absolute; top: 0.5rem; left: 0.5rem; background: white;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="newest-book-info" onclick="window.location.href='book.html?id=3'">
+          <div class="newest-book-title">کافه نوستالژی</div>
+          <div class="newest-book-author">توشیکازو کاواگوچی</div>
+          <div class="rating-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="price-tag">۹۸,۰۰۰ تومان</div>
+        </div>
+      </div>
+
+      <!-- Book 4 -->
+      <div class="newest-book-card">
+        <div style="position: relative;">
+          <img src="assets/imgs/4.jpg" class="newest-book-cover" alt="هنر بی‌خیالی" onclick="window.location.href='book.html?id=4'">
+          <button class="bookmark-btn" style="position: absolute; top: 0.5rem; left: 0.5rem; background: white;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="newest-book-info" onclick="window.location.href='book.html?id=4'">
+          <div class="newest-book-title">هنر بی‌خیالی</div>
+          <div class="newest-book-author">مارک منسون</div>
+          <div class="rating-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="price-tag">۸۹,۰۰۰ تومان</div>
+        </div>
+      </div>
+
+      <!-- Book 5 -->
+      <div class="newest-book-card">
+        <div style="position: relative;">
+          <img src="assets/imgs/5.jpg" class="newest-book-cover" alt="اتاق معجزات" onclick="window.location.href='book.html?id=5'">
+          <button class="bookmark-btn" style="position: absolute; top: 0.5rem; left: 0.5rem; background: white;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="newest-book-info" onclick="window.location.href='book.html?id=5'">
+          <div class="newest-book-title">اتاق معجزات</div>
+          <div class="newest-book-author">جولیان بارنز</div>
+          <div class="rating-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="price-tag">۱۱۰,۰۰۰ تومان</div>
+        </div>
+      </div>
+
+      <!-- Book 6 -->
+      <div class="newest-book-card">
+        <div style="position: relative;">
+          <img src="assets/imgs/6.jpg" class="newest-book-cover" alt="انسان در جستجوی معنا" onclick="window.location.href='book.html?id=6'">
+          <button class="bookmark-btn" style="position: absolute; top: 0.5rem; left: 0.5rem; background: white;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="newest-book-info" onclick="window.location.href='book.html?id=6'">
+          <div class="newest-book-title">انسان در جستجوی معنا</div>
+          <div class="newest-book-author">ویکتور فرانکل</div>
+          <div class="rating-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="price-tag">۹۵,۰۰۰ تومان</div>
+        </div>
+      </div>
+
+      <!-- Book 7 -->
+      <div class="newest-book-card">
+        <div style="position: relative;">
+          <img src="assets/imgs/7.jpg" class="newest-book-cover" alt="هری پاتر و سنگ جادو" onclick="window.location.href='book.html?id=7'">
+          <button class="bookmark-btn" style="position: absolute; top: 0.5rem; left: 0.5rem; background: white;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="newest-book-info" onclick="window.location.href='book.html?id=7'">
+          <div class="newest-book-title">هری پاتر و سنگ جادو</div>
+          <div class="newest-book-author">جی. کی. رولینگ</div>
+          <div class="rating-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="price-tag">۱۳۵,۰۰۰ تومان</div>
+        </div>
+      </div>
+
+      <!-- Book 8 -->
+      <div class="newest-book-card">
+        <div style="position: relative;">
+          <img src="assets/imgs/8.jpg" class="newest-book-cover" alt="عادات اتمی" onclick="window.location.href='book.html?id=8'">
+          <button class="bookmark-btn" style="position: absolute; top: 0.5rem; left: 0.5rem; background: white;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="newest-book-info" onclick="window.location.href='book.html?id=8'">
+          <div class="newest-book-title">عادات اتمی</div>
+          <div class="newest-book-author">جیمز کلیر</div>
+          <div class="rating-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="price-tag">۱۰۵,۰۰۰ تومان</div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Bottom Navigation -->
+<nav class="bottom-nav">
+  <div class="container">
+    <div class="d-flex justify-content-around">
+      <a href="index.html" class="nav-link active">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+        </svg>
+        <small>خانه</small>
+      </a>
+      <a href="books.html" class="nav-link">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        <small>کتاب‌ها</small>
+      </a>
+      <a href="cart.html" class="nav-link" style="position: relative;">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+        </svg>
+        <small>سبد</small>
+        <span class="cart-badge" style="display: none;">0</span>
+      </a>
+      <a href="profile.html" class="nav-link">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+        </svg>
+        <small>پروفایل</small>
+      </a>
+    </div>
+  </div>
+</nav>
 
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -229,7 +516,23 @@
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Custom JS -->
-<script src="assets/js/app.js"></script>
+<!-- Initialize Swiper -->
+<script>
+  // Initialize category swiper
+  new Swiper('.category-swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 10,
+    freeMode: true,
+  });
+
+  // Initialize popular books swiper (only for mobile)
+  if (window.innerWidth < 768) {
+    new Swiper('.swiper-container', {
+      slidesPerView: 2.5,
+      spaceBetween: 12,
+      freeMode: true,
+    });
+  }
+</script>
 </body>
 </html>
