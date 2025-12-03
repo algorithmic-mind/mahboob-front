@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #1877f2;
+  --primary-color: #099d4e;
   --primary-hover: #166fe5;
   --secondary-color: #42b72a;
   --background: #f0f2f5;
@@ -32,6 +32,7 @@ body {
   color: var(--primary-color) !important;
   font-size: 1.75rem;
   font-weight: 700;
+  font-family: 'IranNastaliq';
   transition: var(--transition);
 }
 
@@ -59,7 +60,8 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--primary-color);
+  background-image: url('../imgs/khosravi.ico');
+  background-size: contain;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -171,6 +173,7 @@ body {
 .offcanvas-title {
   color: var(--primary-color);
   font-size: 1.5rem;
+  font-family: 'IranNastaliq';
   font-weight: 700;
 }
 
@@ -290,7 +293,7 @@ body {
 
 /* Hero Banner */
 .hero-banner {
-  background: linear-gradient(135deg, var(--primary-color) 0%, #4c9aff 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #0bb25e 100%);
   border-radius: var(--border-radius);
   padding: 2rem;
   margin-bottom: 1.5rem;
@@ -331,10 +334,11 @@ body {
   background: white;
   color: var(--primary-color);
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--border-radius);
-  font-weight: 600;
+  padding: 0.8rem 0.8rem;
+  border-radius: 1.5rem;
+  font-weight: 400;
   cursor: pointer;
+  font-size: 14px !important;
   transition: var(--transition);
 }
 
