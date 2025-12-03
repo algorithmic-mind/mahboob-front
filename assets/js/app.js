@@ -69,6 +69,29 @@ const state = {
   user: { name: 'دوستین', avatar: 'د' }
 };
 
+// Initialize Swiper
+let popularSwiper = null;
+
+function initSwiper() {
+  if (document.querySelector('.swiper-container')) {
+    popularSwiper = new Swiper('.swiper-container', {
+      slidesPerView: 4,
+      spaceBetween: 12,
+      freeMode: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 16,
+        }
+      }
+    });
+  }
+}
+
 // Toast notification
 function showToast(message, type = 'success') {
   const toastHtml = `
@@ -156,41 +179,44 @@ function renderStars(rating) {
 
 // Render home page
 function renderHome() {
-  const popularContainer = document.getElementById('popular-books');
+  const popularContainer = document.querySelector('.swiper-wrapper');
   const newestContainer = document.getElementById('newest-books');
   
   if (!popularContainer || !newestContainer) return;
   
-  // Popular books - horizontal scroll
+  // Popular books - Swiper slider
   const popularBooks = BOOKS.filter(b => b.isPopular);
   popularContainer.innerHTML = popularBooks.map(book => `
-    <div class="popular-book-card" onclick="window.location.href='book.html?id=${book.id}'">
-      <img src="${book.cover}" class="popular-book-cover" alt="${book.title}">
-      <div class="popular-book-title">${book.title}</div>
-      <div class="popular-book-author">${book.author}</div>
+    <div class="swiper-slide">
+      <div class="popular-book-card" onclick="window.location.href='book.html?id=${book.id}'">
+        <img src="${book.cover}" class="popular-book-cover" alt="${book.title}">
+        <div class="popular-book-title">${book.title}</div>
+        <div class="popular-book-author">${book.author}</div>
+        <div class="price-tag">${book.price.toLocaleString('fa-IR')} تومان</div>
+      </div>
     </div>
   `).join('');
   
-  // Newest books - list view
-  const newestBooks = BOOKS.slice(3);
-  newestContainer.innerHTML = newestBooks.map(book => `
-    <div class="newest-book-card" onclick="window.location.href='book.html?id=${book.id}'">
-      <img src="${book.cover}" class="newest-book-cover" alt="${book.title}">
-      <div class="newest-book-info">
-        <div>
-          <div class="newest-book-title">${book.title}</div>
-          <div class="newest-book-author">${book.author}</div>
-          <div class="rating-stars">${renderStars(book.rating)}</div>
+  // Initialize Swiper after content is added
+  setTimeout(() => initSwiper(), 100);
+  
+  // Newest books - grid view
+  const newestBooks = BOOKS;
+  newestContainer.innerHTML = `
+    <div class="books-grid">
+      ${newestBooks.map(book => `
+        <div class="newest-book-card" onclick="window.location.href='book.html?id=${book.id}'">
+          <img src="${book.cover}" class="newest-book-cover" alt="${book.title}">
+          <div class="newest-book-info">
+            <div class="newest-book-title">${book.title}</div>
+            <div class="newest-book-author">${book.author}</div>
+            <div class="rating-stars">${renderStars(book.rating)}</div>
+            <div class="price-tag">${book.price.toLocaleString('fa-IR')} تومان</div>
+          </div>
         </div>
-      </div>
-      <button class="bookmark-btn ${state.bookmarks.includes(book.id) ? 'active' : ''}" 
-              onclick="event.stopPropagation(); toggleBookmark(${book.id})">
-        <svg viewBox="0 0 24 24" fill="${state.bookmarks.includes(book.id) ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
-          <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/>
-        </svg>
-      </button>
+      `).join('')}
     </div>
-  `).join('');
+  `;
 }
 
 // Render books list
@@ -198,21 +224,21 @@ function renderBooksList() {
   const container = document.getElementById('books-list');
   if (!container) return;
   
-  container.innerHTML = BOOKS.map(book => `
-    <div class="col-md-4 col-sm-6 mb-4">
-      <div class="newest-book-card" onclick="window.location.href='book.html?id=${book.id}'">
-        <img src="${book.cover}" class="newest-book-cover" alt="${book.title}">
-        <div class="newest-book-info">
-          <div>
+  container.innerHTML = `
+    <div class="books-grid">
+      ${BOOKS.map(book => `
+        <div class="newest-book-card" onclick="window.location.href='book.html?id=${book.id}'">
+          <img src="${book.cover}" class="newest-book-cover" alt="${book.title}">
+          <div class="newest-book-info">
             <div class="newest-book-title">${book.title}</div>
             <div class="newest-book-author">${book.author}</div>
             <div class="rating-stars">${renderStars(book.rating)}</div>
             <div class="price-tag">${book.price.toLocaleString('fa-IR')} تومان</div>
           </div>
         </div>
-      </div>
+      `).join('')}
     </div>
-  `).join('');
+  `;
   
   // Search functionality
   const searchInput = document.querySelector('.search-box');
@@ -223,21 +249,21 @@ function renderBooksList() {
         book.title.toLowerCase().includes(query) || 
         book.author.toLowerCase().includes(query)
       );
-      container.innerHTML = filtered.map(book => `
-        <div class="col-md-4 col-sm-6 mb-4">
-          <div class="newest-book-card" onclick="window.location.href='book.html?id=${book.id}'">
-            <img src="${book.cover}" class="newest-book-cover" alt="${book.title}">
-            <div class="newest-book-info">
-              <div>
+      container.innerHTML = `
+        <div class="books-grid">
+          ${filtered.map(book => `
+            <div class="newest-book-card" onclick="window.location.href='book.html?id=${book.id}'">
+              <img src="${book.cover}" class="newest-book-cover" alt="${book.title}">
+              <div class="newest-book-info">
                 <div class="newest-book-title">${book.title}</div>
                 <div class="newest-book-author">${book.author}</div>
                 <div class="rating-stars">${renderStars(book.rating)}</div>
                 <div class="price-tag">${book.price.toLocaleString('fa-IR')} تومان</div>
               </div>
             </div>
-          </div>
+          `).join('')}
         </div>
-      `).join('');
+      `;
     });
   }
 }
